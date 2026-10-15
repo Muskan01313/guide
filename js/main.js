@@ -13,7 +13,6 @@
   var home = $('#home');
   var view = $('#view');
   var topics = $$('.topic');
-  var railLinks = $$('.rail a[data-id]');
 
   /* ---------- Routing: #topic or #part-inside-a-topic ---------- */
   var homeScrollY = 0;
@@ -31,15 +30,14 @@
     home.hidden = true;
     view.hidden = false;
     onHome = false;
-
-    railLinks.forEach(function (a) { a.classList.toggle('on', a.dataset.id === section.id); });
+    buildRail(section);
 
     // Jump when the topic changes (it animates in); glide when moving within it.
     var sameTopic = currentTopic === section;
     currentTopic = section;
     if (target === section) window.scrollTo({ top: 0, behavior: sameTopic ? 'smooth' : 'auto' });
     else target.scrollIntoView({ behavior: sameTopic ? 'smooth' : 'auto', block: 'start' });
-    setTimeout(updateProgress, 0);
+    setTimeout(function () { updateProgress(); spyRail(); }, 0);
 
     var colour = getComputedStyle(section).getPropertyValue('--tc');
     var deco = $('.deco');
@@ -56,11 +54,13 @@
     }
   }
 
-  function showHome() {
+  function showHome(toTopics) {
     view.hidden = true;
     home.hidden = false;
     currentTopic = null;
-    if (!onHome) window.scrollTo(0, homeScrollY);
+    var grid = toTopics && document.getElementById('topics');
+    if (grid) window.scrollTo(0, grid.getBoundingClientRect().top + window.scrollY - 8);
+    else if (!onHome) window.scrollTo(0, homeScrollY);
     onHome = true;
     document.title = SITE_TITLE;
   }
@@ -70,10 +70,61 @@
     var target = id && document.getElementById(id);
     var section = target && target.closest('.topic');
     if (section) showTopic(section, target);
-    else showHome();
+    else showHome(id === 'topics');
   }
 
   window.addEventListener('hashchange', route);
+
+  /* ---------- Rail: the open topic's parts as a timeline ----------
+   * Lists the topic's parts, or its section headings when it has no parts,
+   * and highlights the one that has most recently scrolled past the top. */
+  var rail = document.createElement('nav');
+  rail.className = 'rail';
+  rail.setAttribute('aria-label', 'In this topic');
+  rail.innerHTML = '<p class="railh">In this topic</p><ol class="railsteps"></ol>';
+  var railList = $('.railsteps', rail);
+  var railItems = [];   // [{ el, link }]
+
+  function buildRail(section) {
+    railItems = [];
+    if (!rail) return;
+    var targets = $$('.part', section);
+    var useHeadings = !targets.length;
+    if (useHeadings) targets = $$('.tcol > h3', section);
+    targets.forEach(function (el, i) {
+      if (!el.id) el.id = section.id + '-h' + (i + 1);
+    });
+    railList.innerHTML = targets.map(function (el) {
+      var label = useHeadings ? el : $('.ph', el);
+      return '<li><a href="#' + el.id + '"><i aria-hidden="true"></i><span>' +
+        (label ? label.textContent : el.id) + '</span></a></li>';
+    }).join('');
+    var body = $('.tbody', section);
+    body.classList.toggle('hasrail', targets.length > 0);
+    if (targets.length) body.insertBefore(rail, body.firstChild);
+    else if (rail.parentNode) rail.parentNode.removeChild(rail);
+    var links = $$('a', railList);
+    railItems = targets.map(function (el, i) { return { el: el, link: links[i] }; });
+    spyRail();
+  }
+
+  function spyRail() {
+    if (!railItems.length) return;
+    var line = 150;
+    var active = railItems[0];
+    railItems.forEach(function (it) {
+      if (it.el.getBoundingClientRect().top <= line) active = it;
+    });
+    var atEnd = window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atEnd) active = railItems[railItems.length - 1];
+    railItems.forEach(function (it) {
+      var on = it === active;
+      if (on !== it.link.classList.contains('on')) {
+        it.link.classList.toggle('on', on);
+        if (on && it.link.scrollIntoView) it.link.scrollIntoView({ block: 'nearest' });
+      }
+    });
+  }
 
   /* ---------- Back-to-top button and reading progress ---------- */
   var topButtons = $$('.totop');
@@ -97,7 +148,7 @@
     progressBar.style.width = (h > 0 ? Math.min(100, window.scrollY / h * 100) : 0) + '%';
   }
 
-  window.addEventListener('scroll', function () { toggleTopButtons(); updateProgress(); }, { passive: true });
+  window.addEventListener('scroll', function () { toggleTopButtons(); updateProgress(); spyRail(); }, { passive: true });
   toggleTopButtons();
 
   /* ---------- Lightbox for screenshots ---------- */

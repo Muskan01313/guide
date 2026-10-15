@@ -231,7 +231,7 @@ body.play .path li:nth-child(2){animation-delay:.08s}body.play .path li:nth-chil
 .thead h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:600;line-height:1.15;letter-spacing:-.015em;margin:0 0 8px;text-wrap:balance}
 .tblurb{margin:0;color:var(--muted);font-size:1.08rem;max-width:70ch}
 .tbody{padding:28px clamp(20px,4vw,56px) 64px;max-width:1180px;margin-inline:auto}
-.tbody>p,.tbody>ul,.tbody>ol:not(.proc),.tbody>.note{max-width:85ch}
+.tcol>p,.tcol>ul,.tcol>ol:not(.proc),.tcol>.note{max-width:85ch}
 .tbody h3{font-size:1.2rem;font-weight:600;margin:34px 0 10px;padding-top:6px}
 .tbody h3:first-child{margin-top:0}
 .tbody figure img{box-shadow:var(--shadow)}
@@ -600,20 +600,25 @@ html.dark .theme .moon{opacity:0;transform:rotate(90deg) scale(.6)}
 html:not(.js) .theme{display:none}
 @media (max-width:620px){.bar .theme{order:-1;margin-left:auto}}
 
-/* Topic rail: a fixed list of every topic on the left of a topic page.
-   The open topic is marked .on by main.js and grows a little. */
+/* Topic rail: the parts of the open topic as a timeline in the left
+   column of the topic body. main.js builds it and marks the part in
+   view with .on. */
 .rail{display:none}
+.tcol{min-width:0}
 @media (min-width:1200px){
-  .rail{display:flex;flex-direction:column;gap:4px;position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + 60px);bottom:0;z-index:5;width:240px;padding:22px 14px 24px 16px;overflow-y:auto;background:var(--surface);border-right:1px solid var(--line)}
-  .railh{margin:0 10px 10px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-  .rail a{display:flex;align-items:center;gap:11px;padding:8px 10px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:500;line-height:1.3;transform-origin:left center;transition:transform .25s cubic-bezier(.2,.7 var(--ease),.2 var(--ease),1) var(--ease),background .2s var(--ease),color .2s var(--ease)}
-  .rail a b{display:grid;place-items:center;flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--ts);color:var(--tc);font-size:.76rem;font-weight:700;font-variant-numeric:tabular-nums;transition:background .2s var(--ease),color .2s var(--ease)}
-  .rail a:hover{background:var(--ts);color:var(--tc)}
-  .rail a.on{transform:scale(1.06);background:var(--ts);color:var(--tc);font-weight:700;box-shadow:0 8px 20px -12px var(--tc)}
-  .rail a.on b{background:var(--tc);color:var(--surface)}
+  .tbody.hasrail{display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:48px;align-items:start;max-width:1460px}
+  .rail{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);max-height:calc(100vh - 100px);overflow-y:auto;padding:2px 0 16px}
+  .railh{margin:0 0 14px 2px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .railsteps{list-style:none;margin:0;padding:0;position:relative}
+  .railsteps::before{content:"";position:absolute;left:11px;top:16px;bottom:16px;width:2px;border-radius:1px;background:var(--line)}
+  .railsteps li{margin:0}
+  .rail a{display:flex;align-items:flex-start;gap:14px;padding:7px 6px 7px 5px;color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;line-height:1.3;transform-origin:left center;transition:color .25s var(--ease),transform .3s var(--ease)}
+  .rail a i{flex:0 0 auto;width:14px;height:14px;margin-top:.18em;border-radius:50%;border:2px solid var(--line);background:var(--bg);position:relative;z-index:1;transition:border-color .25s var(--ease),background .25s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease)}
+  .rail a:hover{color:var(--ink)}
+  .rail a:hover i{border-color:var(--tc)}
+  .rail a.on{color:var(--tc);font-weight:700;transform:scale(1.06)}
+  .rail a.on i{border-color:var(--tc);background:var(--tc);box-shadow:0 0 0 4px var(--ts);transform:scale(1.15)}
   .rail a:focus-visible{outline:3px solid var(--tc);outline-offset:2px}
-  #view .tmain,#view .gfoot{margin-left:240px}
-  .deco .dl{display:none}
 }
 
 /* Motion: keep continuously animated layers on the compositor, and
