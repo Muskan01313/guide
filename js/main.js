@@ -90,12 +90,12 @@
     if (!rail) return;
     var targets = $$('.part', section);
     var useHeadings = !targets.length;
-    if (useHeadings) targets = $$('.tcol > h3', section);
+    if (useHeadings) targets = $$('.tcol > h3, .tcol > .glance', section);
     targets.forEach(function (el, i) {
       if (!el.id) el.id = section.id + '-h' + (i + 1);
     });
     railList.innerHTML = targets.map(function (el) {
-      var label = useHeadings ? el : $('.ph', el);
+      var label = useHeadings ? (el.classList.contains('glance') ? $('summary span', el) : el) : $('.ph', el);
       return '<li><a href="#' + el.id + '"><i aria-hidden="true"></i><span>' +
         (label ? label.textContent : el.id) + '</span></a></li>';
     }).join('');
@@ -158,11 +158,26 @@
     var lbCaption = $('.lbcap', lightbox);
     var lbClose = $('.lbc', lightbox);
 
-    function openLightbox(img) {
+    var lbPrev = $('.lbp', lightbox);
+    var lbNext = $('.lbn', lightbox);
+    var lbCount = $('.lbcount', lightbox);
+    var gallery = [];   // every screenshot of the open topic
+    var galleryIndex = 0;
+
+    function showLightboxImage(i) {
+      galleryIndex = (i + gallery.length) % gallery.length;
+      var img = gallery[galleryIndex];
       lbImage.src = img.src;
       lbImage.alt = img.alt;
       var caption = img.closest('figure').querySelector('figcaption');
       lbCaption.textContent = caption ? caption.textContent : '';
+      lbCount.textContent = gallery.length > 1 ? (galleryIndex + 1) + ' / ' + gallery.length : '';
+      lbPrev.hidden = lbNext.hidden = gallery.length < 2;
+    }
+    function openLightbox(img) {
+      var section = img.closest('.topic');
+      gallery = $$('.tbody figure img', section || document);
+      showLightboxImage(Math.max(0, gallery.indexOf(img)));
       lightbox.classList.add('on');
       lbClose.focus();
     }
@@ -170,16 +185,113 @@
       lightbox.classList.remove('on');
       lbImage.removeAttribute('src');
     }
+    function stepLightbox(delta) {
+      if (gallery.length > 1) showLightboxImage(galleryIndex + delta);
+    }
 
     document.addEventListener('click', function (e) {
       var img = e.target.closest('.tbody figure img');
       if (img) openLightbox(img);
     });
-    lightbox.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      var nav = e.target.closest('.lbnav');
+      if (nav) { e.stopPropagation(); stepLightbox(nav === lbNext ? 1 : -1); return; }
+      closeLightbox();
+    });
+    // Arrow keys move between screenshots; Escape closes. Handled before the
+    // page-level shortcuts below, which skip while the lightbox is open.
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('on')) closeLightbox();
+      if (!lightbox.classList.contains('on')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); stepLightbox(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); stepLightbox(-1); }
     });
   }
+
+  /* ---------- "Next part" link at the end of every part ---------- */
+  topics.forEach(function (section, k) {
+    var parts = $$('.part', section);
+    parts.forEach(function (part, i) {
+      var next = parts[i + 1];
+      var nextTopic = topics[k + 1];
+      var href, kind, title;
+      if (next) {
+        href = '#' + next.id; kind = 'Next part'; title = $('.ph', next).textContent;
+      } else if (nextTopic) {
+        href = '#' + nextTopic.id; kind = 'Next topic'; title = nextTopic.dataset.title;
+      } else {
+        return;
+      }
+      var a = document.createElement('a');
+      a.className = 'nextpart';
+      a.href = href;
+      a.innerHTML = '<span><small></small><b></b></span><span class="npgo" aria-hidden="true">→</span>';
+      $('small', a).textContent = kind;
+      $('b', a).textContent = title;
+      part.appendChild(a);
+    });
+  });
+
+  /* ---------- Collapsible "Steps at a glance", remembered ---------- */
+  var glances = $$('details.glance');
+  if (glances.length) {
+    var pref = null;
+    try { pref = localStorage.getItem('glance'); } catch (err) {}
+    glances.forEach(function (d) {
+      if (pref === 'closed') d.open = false;
+      $('summary', d).insertAdjacentHTML('beforeend', '<small></small>');
+      d.addEventListener('toggle', function () {
+        try { localStorage.setItem('glance', d.open ? 'open' : 'closed'); } catch (err) {}
+        glances.forEach(function (o) { if (o !== d) o.open = d.open; });
+      });
+    });
+  }
+
+  /* ---------- Keyboard shortcuts ---------- */
+  var help = $('#kbd');
+  function toggleHelp(force) {
+    if (!help) return;
+    var show = typeof force === 'boolean' ? force : help.hidden;
+    help.hidden = !show;
+    if (show) $('.kbdx', help).focus();
+  }
+  if (help) {
+    help.addEventListener('click', function (e) {
+      if (e.target === help || e.target.closest('.kbdx')) toggleHelp(false);
+    });
+    $$('.kbdbtn').forEach(function (b) { b.addEventListener('click', function () { toggleHelp(true); }); });
+  }
+  function currentPartIndex(parts) {
+    var line = 150, idx = -1;
+    parts.forEach(function (p, i) { if (p.getBoundingClientRect().top <= line) idx = i; });
+    return idx;
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+    if (lightbox && lightbox.classList.contains('on')) return;
+
+    if (e.key === '?') { e.preventDefault(); toggleHelp(); return; }
+    if (help && !help.hidden) { if (e.key === 'Escape') toggleHelp(false); return; }
+    if (onHome) return;
+
+    var section = currentTopic;
+    if (e.key === 'Escape') { location.hash = '#topics'; return; }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      var link = $(e.key === 'ArrowRight' ? '#next' : '#prev');
+      if (link && !link.hidden) { e.preventDefault(); location.hash = link.getAttribute('href'); }
+      return;
+    }
+    if (e.key === 'n' || e.key === 'N' || e.key === 'p' || e.key === 'P') {
+      var parts = $$('.part', section);
+      if (!parts.length) return;
+      var i = currentPartIndex(parts) + (e.key === 'n' || e.key === 'N' ? 1 : -1);
+      if (i < 0 || i >= parts.length) return;
+      e.preventDefault();
+      location.hash = '#' + parts[i].id;
+    }
+  });
 
   /* ---------- Code panels: expand and copy ---------- */
   document.addEventListener('click', function (e) {

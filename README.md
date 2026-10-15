@@ -49,6 +49,7 @@ This guide puts that knowledge in one place. It was made to:
 - **Field-by-field tables** and **checklists** showing exactly what to enter
 - **Copy and download buttons** for JSON templates and workflows
 - **A built-in Feature ID checker** that flags characters that are not allowed
+- **Easy to move around:** a timeline of the open topic's parts beside the content, a "Next part" link at the end of every part, and keyboard shortcuts (press `?` on a topic page to see them)
 - **Works everywhere:** desktop, tablet and phone, with a light and dark mode toggle that remembers your choice
 - **Works offline:** the guide uses no build step or server, so a copy of the folder opens straight from disk
 
