@@ -577,6 +577,22 @@ a.nttile:hover{border-color:var(--tc)}
 .ntex .bad b{color:var(--tc)}
 .ntex .send{background:var(--ts);border-color:transparent}.ntex .send b{font-size:1rem;color:var(--tc)}
 .ntex>i{font-style:normal;color:var(--muted);font-weight:600}
+
+/* Animated title: letters rise in after the splash, "Guide" shimmers in a wave, and each letter hops on hover */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero h1 .w{display:inline-block;white-space:nowrap}
+.hero h1 .ch{display:inline-block;transition:transform .3s cubic-bezier(.3,1.7,.5,1)}
+.hero h1 .ch:hover{transform:translateY(-.12em) rotate(-4deg)}
+.hero h1 em{display:inline-block;position:relative;background:none;animation:none;color:inherit}
+.hero h1 em .ch{background:linear-gradient(100deg,#ff6fae 0%,#ffd1e6 30%,#ff6fae 55%,#e0347f 100%);background-size:400% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshine 3.6s ease-in-out infinite,gbob 3.6s ease-in-out infinite;animation-delay:calc(var(--j) * .14s)}
+.hero h1 em::after{content:"";position:absolute;left:3%;right:3%;bottom:-.05em;height:.08em;border-radius:99px;background:linear-gradient(90deg,#e0347f,#ff6fae 60%,#ffd1e6);background-size:200% 100%;animation:gline 3.6s ease-in-out infinite;opacity:.9}
+body.play .hero h1 .ch{animation:chin .75s cubic-bezier(.2,.9,.25,1.2) both;animation-delay:calc(var(--i) * 32ms + 80ms)}
+body.play .hero h1 em::after{animation:udraw .7s cubic-bezier(.6,0,.2,1) .85s both}
+@keyframes chin{0%{opacity:0;transform:translateY(.55em) rotate(10deg) scale(.9);filter:blur(6px)}100%{opacity:1;transform:none;filter:none}}
+@keyframes gshine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes gbob{0%,55%,100%{transform:none}25%{transform:translateY(-.09em)}}
+@keyframes gline{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes udraw{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
 </style>
 </head>
 <body>
@@ -591,7 +607,7 @@ a.nttile:hover{border-color:var(--tc)}
     <div class="hcopy">
       <p class="brand">E<b>xx</b>at</p>
       <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Eval Configuration Tool · Training guide</p>
-      <h1>Form Configuration <em>Guide</em></h1>
+      <h1><span class="vh">Form Configuration Guide</span><span aria-hidden="true"><span class="w"><span class="ch" style="--i:0">F</span><span class="ch" style="--i:1">o</span><span class="ch" style="--i:2">r</span><span class="ch" style="--i:3">m</span></span> <span class="w"><span class="ch" style="--i:4">C</span><span class="ch" style="--i:5">o</span><span class="ch" style="--i:6">n</span><span class="ch" style="--i:7">f</span><span class="ch" style="--i:8">i</span><span class="ch" style="--i:9">g</span><span class="ch" style="--i:10">u</span><span class="ch" style="--i:11">r</span><span class="ch" style="--i:12">a</span><span class="ch" style="--i:13">t</span><span class="ch" style="--i:14">i</span><span class="ch" style="--i:15">o</span><span class="ch" style="--i:16">n</span></span> <em><span class="w"><span class="ch" style="--i:17;--j:0">G</span><span class="ch" style="--i:18;--j:1">u</span><span class="ch" style="--i:19;--j:2">i</span><span class="ch" style="--i:20;--j:3">d</span><span class="ch" style="--i:21;--j:4">e</span></span></em></span></h1>
       <p class="lede">Everything you need to build evaluation forms in the Exxat Form Builder, from the first field to a published multi response form. Pick a topic and follow it step by step.</p>
       <div class="ctas">
         <a class="btn-primary" href="#overview">Start learning<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
