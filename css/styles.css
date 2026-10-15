@@ -239,7 +239,7 @@ code{font-family:var(--mono);background:var(--code-bg);padding:1px 6px;border-ra
 .parts>p{margin:0 0 10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .parts ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;counter-reset:pp}
 .parts li{margin:0;counter-increment:pp}
-.parts a{display:flex;flex-direction:column;padding:9px 12px 9px 40px;position:relative;border-radius:6px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500;font-size:.92rem;line-height:1.35;height:100%}
+.parts a{display:flex;flex-direction:column;justify-content:center;padding:9px 12px 9px 40px;position:relative;border-radius:6px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500;font-size:.92rem;line-height:1.35;height:100%}
 .parts a::before{content:counter(pp);position:absolute;left:12px;top:9px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 .parts a span{font-size:.72rem;color:var(--muted);font-weight:600;letter-spacing:.04em}
 .parts a:hover{border-color:var(--accent);background:var(--accent-soft)}
