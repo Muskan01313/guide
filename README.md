@@ -65,7 +65,6 @@ The guide will keep being updated and enhanced based on feedback and new require
 ## Credits
 
 - Guide created and maintained by **Muskan Sharma**
-- Tested workflows by **Rishabh Choudhary**
 
 ---
 
