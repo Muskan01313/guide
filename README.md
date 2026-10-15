@@ -50,7 +50,7 @@ This guide puts that knowledge in one place. It was made to:
 - **Copy and download buttons** for JSON templates and workflows
 - **A built-in Feature ID checker** that flags characters that are not allowed
 - **Works everywhere:** desktop, tablet and phone, in light and dark mode
-- **Works offline:** the guide is a single file with all images and downloads built in, so it can be saved and opened without internet
+- **Works offline:** the guide uses no build step or server, so a copy of the folder opens straight from disk
 
 ## Feedback and updates
 
@@ -70,12 +70,18 @@ The guide will keep being updated and enhanced based on feedback and new require
 
 ### For maintainers
 
-The whole guide is one self-contained HTML file, and GitHub Pages publishes it from the `main` branch.
+The guide is plain HTML, CSS and JavaScript with no build step. GitHub Pages publishes it from the `main` branch.
 
-| File | Purpose |
+| Path | Purpose |
 |---|---|
-| `index.html` | The guide. This is what the site shows. |
-| `Exxat-Form-Configuration-Guide.html` | A copy of the same guide, kept so older links keep working |
+| `index.html` | The guide's content: every topic, step, table and figure |
+| `css/styles.css` | All styling, including the light and dark colour tokens |
+| `js/main.js` | Hash routing between topics, the lightbox, code panels and the Feature ID checker |
+| `assets/img/` | Screenshots, named by topic (`create-form-01.png`, `notifications-03.png`, …) |
+| `assets/downloads/` | The JSON templates and the tested-workflows Word file offered for download |
 | `assets/preview.png` | The screenshot at the top of this README |
+| `Exxat-Form-Configuration-Guide.html` | A redirect to `index.html`, kept so older links keep working |
 
-To publish an update, replace **both** HTML files with the new version and push to `main`. The site updates within a minute or two.
+To publish an update, edit the files and push to `main`. The site updates within a minute or two.
+
+The page also works with JavaScript disabled: the address (`#topic`) decides which topic is shown.
