@@ -13,9 +13,11 @@
   var home = $('#home');
   var view = $('#view');
   var topics = $$('.topic');
+  var railLinks = $$('.rail a[data-id]');
 
   /* ---------- Routing: #topic or #part-inside-a-topic ---------- */
   var homeScrollY = 0;
+  var currentTopic = null;
   var onHome = true;
 
   function showTopic(section, target) {
@@ -30,8 +32,13 @@
     view.hidden = false;
     onHome = false;
 
-    if (target === section) window.scrollTo(0, 0);
-    else target.scrollIntoView();
+    railLinks.forEach(function (a) { a.classList.toggle('on', a.dataset.id === section.id); });
+
+    // Jump when the topic changes (it animates in); glide when moving within it.
+    var sameTopic = currentTopic === section;
+    currentTopic = section;
+    if (target === section) window.scrollTo({ top: 0, behavior: sameTopic ? 'smooth' : 'auto' });
+    else target.scrollIntoView({ behavior: sameTopic ? 'smooth' : 'auto', block: 'start' });
     setTimeout(updateProgress, 0);
 
     var colour = getComputedStyle(section).getPropertyValue('--tc');
@@ -52,6 +59,7 @@
   function showHome() {
     view.hidden = true;
     home.hidden = false;
+    currentTopic = null;
     if (!onHome) window.scrollTo(0, homeScrollY);
     onHome = true;
     document.title = SITE_TITLE;
@@ -224,7 +232,11 @@
       b.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
     });
   }
+  var themingTimer = null;
   function setTheme(theme) {
+    root.classList.add('theming');
+    clearTimeout(themingTimer);
+    themingTimer = setTimeout(function () { root.classList.remove('theming'); }, 450);
     root.setAttribute('data-theme', theme);
     try { localStorage.setItem('theme', theme); } catch (err) {}
     reflectTheme();
