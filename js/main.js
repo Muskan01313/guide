@@ -204,6 +204,39 @@
     });
   }
 
+  /* ---------- Light and dark mode ----------
+   * data-theme on <html> overrides the system setting (the head script sets
+   * it early from localStorage). html.dark mirrors the effective theme so the
+   * toggle can show the right icon. */
+  var root = document.documentElement;
+  var systemDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  var themeButtons = $$('.theme');
+
+  function currentTheme() {
+    var chosen = root.getAttribute('data-theme');
+    if (chosen === 'light' || chosen === 'dark') return chosen;
+    return systemDark && systemDark.matches ? 'dark' : 'light';
+  }
+  function reflectTheme() {
+    var dark = currentTheme() === 'dark';
+    root.classList.toggle('dark', dark);
+    themeButtons.forEach(function (b) {
+      b.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+  }
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (err) {}
+    reflectTheme();
+  }
+  themeButtons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    });
+  });
+  if (systemDark && systemDark.addEventListener) systemDark.addEventListener('change', reflectTheme);
+  reflectTheme();
+
   /* ---------- First paint ---------- */
   $$('.card').forEach(function (card, i) { card.style.setProperty('--d', i); });
   route();

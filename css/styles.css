@@ -580,3 +580,20 @@ body.play .hero h1 em::after{animation:udraw .7s cubic-bezier(.6,0,.2,1) .85s bo
 .mtabs a.on{color:#a3165a;border-bottom-color:#a3165a}
 .mtabs a:focus-visible{outline:2px solid #a3165a;outline-offset:3px;border-radius:3px}
 .mock.front .mtabs a{cursor:pointer}
+
+/* Light and dark mode toggle. The stored choice sets data-theme on <html>;
+   with no choice the system setting applies (see the tokens at the top). */
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 22px}
+.hbar .brand{margin:0}
+.theme{display:inline-grid;place-items:center;width:40px;height:40px;padding:0;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--night-ink);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.theme:hover{background:rgba(255,255,255,.14);border-color:var(--night-ink);transform:translateY(-1px)}
+.theme:focus-visible{outline:3px solid #ff6fae;outline-offset:3px}
+.theme svg{grid-area:1/1;transition:opacity .25s,transform .35s}
+.theme .sun{opacity:0;transform:rotate(-90deg) scale(.6)}
+.theme .moon{opacity:1;transform:none}
+html.dark .theme .sun{opacity:1;transform:none}
+html.dark .theme .moon{opacity:0;transform:rotate(90deg) scale(.6)}
+.hero .theme{position:absolute;top:58px;right:clamp(20px,4vw,72px);z-index:3}
+.bar .theme{margin-left:4px}
+html:not(.js) .theme{display:none}
+@media (max-width:620px){.bar .theme{order:-1;margin-left:auto}}

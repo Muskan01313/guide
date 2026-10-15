@@ -49,7 +49,7 @@ This guide puts that knowledge in one place. It was made to:
 - **Field-by-field tables** and **checklists** showing exactly what to enter
 - **Copy and download buttons** for JSON templates and workflows
 - **A built-in Feature ID checker** that flags characters that are not allowed
-- **Works everywhere:** desktop, tablet and phone, in light and dark mode
+- **Works everywhere:** desktop, tablet and phone, with a light and dark mode toggle that remembers your choice
 - **Works offline:** the guide uses no build step or server, so a copy of the folder opens straight from disk
 
 ## Feedback and updates
@@ -76,7 +76,7 @@ The guide is plain HTML, CSS and JavaScript with no build step. GitHub Pages pub
 |---|---|
 | `index.html` | The guide's content: every topic, step, table and figure |
 | `css/styles.css` | All styling, including the light and dark colour tokens |
-| `js/main.js` | Hash routing between topics, the lightbox, code panels and the Feature ID checker |
+| `js/main.js` | Hash routing between topics, the theme toggle, the lightbox, code panels and the Feature ID checker |
 | `assets/img/` | Screenshots, named by topic (`create-form-01.png`, `notifications-03.png`, …) |
 | `assets/downloads/` | The JSON templates and the tested-workflows Word file offered for download |
 | `assets/preview.png` | The screenshot at the top of this README |
