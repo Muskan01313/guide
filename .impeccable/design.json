@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T00:00:00Z",
+  "title": "Design System: Exxat Form Configuration Guide",
+  "extensions": {
+    "colorMeta": {
+      "sheet": { "role": "neutral", "displayName": "Sheet", "canonical": "#f6f2f0", "cssVar": "--bg", "dark": "#041c2c", "tonalRamp": ["oklch(18% 0.006 60)", "oklch(30% 0.008 60)", "oklch(44% 0.010 60)", "oklch(58% 0.012 60)", "oklch(72% 0.012 60)", "oklch(84% 0.010 60)", "oklch(92% 0.008 60)", "oklch(96% 0.006 60)"] },
+      "sheet-surface": { "role": "neutral", "displayName": "Sheet Surface", "canonical": "#fdfcfb", "cssVar": "--surface", "dark": "#0a2436" },
+      "navy-ink": { "role": "neutral", "displayName": "Navy Ink", "canonical": "#041c2c", "cssVar": "--ink", "dark": "#edf7fd", "tonalRamp": ["oklch(15% 0.04 240)", "oklch(22% 0.05 240)", "oklch(32% 0.06 240)", "oklch(45% 0.06 240)", "oklch(60% 0.05 240)", "oklch(75% 0.04 240)", "oklch(88% 0.025 240)", "oklch(96% 0.012 240)"] },
+      "slate-ink": { "role": "neutral", "displayName": "Slate Ink", "canonical": "#3b5670", "cssVar": "--ink-2", "dark": "#a9c3d6" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#d9d2cb", "cssVar": "--line", "dark": "#1f3b52" },
+      "rule-navy": { "role": "neutral", "displayName": "Opening Rule", "canonical": "#041c2c", "cssVar": "--rule", "dark": "#edf7fd" },
+      "exxat-pink": { "role": "primary", "displayName": "Exxat Pink (index)", "canonical": "#c9156a", "cssVar": "--accent", "dark": "#ff5fa6", "tonalRamp": ["oklch(20% 0.08 355)", "oklch(30% 0.12 355)", "oklch(42% 0.17 355)", "oklch(54% 0.21 355)", "oklch(66% 0.19 355)", "oklch(78% 0.13 355)", "oklch(89% 0.07 355)", "oklch(96% 0.025 355)"] },
+      "exxat-pink-fill": { "role": "primary", "displayName": "Exxat Pink Fill", "canonical": "#d41569", "cssVar": "--accent-fill", "dark": "#ff5fa6" },
+      "exxat-pink-brand": { "role": "primary", "displayName": "Exxat Pink (brand literal, on navy only)", "canonical": "#e31c79", "dark": "#e31c79" },
+      "pink-on-fill": { "role": "primary", "displayName": "On Pink", "canonical": "#ffffff", "cssVar": "--accent-ink", "dark": "#041c2c" },
+      "pink-wash": { "role": "primary", "displayName": "Pink Wash (selection)", "canonical": "#fde9f1", "cssVar": "--accent-soft", "dark": "#3a1a2c" },
+      "head-navy": { "role": "neutral", "displayName": "Head Navy", "canonical": "#041c2c", "cssVar": "--head", "dark": "#02131f" },
+      "head-ice": { "role": "neutral", "displayName": "Head Ice", "canonical": "#edf7fd", "cssVar": "--head-ink", "dark": "#edf7fd" },
+      "head-sky": { "role": "neutral", "displayName": "Head Sky", "canonical": "#99d2ff", "cssVar": "--head-muted", "dark": "#99d2ff", "tonalRamp": ["oklch(20% 0.05 240)", "oklch(32% 0.08 240)", "oklch(45% 0.11 240)", "oklch(58% 0.13 240)", "oklch(70% 0.12 240)", "oklch(82% 0.09 240)", "oklch(90% 0.06 240)", "oklch(96% 0.02 240)"] },
+      "head-line": { "role": "neutral", "displayName": "Head Line", "canonical": "#2a4a66", "cssVar": "--head-line", "dark": "#1f3b52" },
+      "tint-blue": { "role": "neutral", "displayName": "Row Tint", "canonical": "#e9f2ff", "cssVar": "--tint", "dark": "#0f2d45" },
+      "code-sand": { "role": "neutral", "displayName": "Code Sand", "canonical": "#ebe6e1", "cssVar": "--code-bg", "dark": "#0f2d45" },
+      "panel-navy": { "role": "neutral", "displayName": "Panel Navy", "canonical": "#041c2c", "cssVar": "--panel", "dark": "#02131f" },
+      "panel-ice": { "role": "neutral", "displayName": "Panel Ice", "canonical": "#edf7fd", "cssVar": "--panel-ink", "dark": "#edf7fd" },
+      "ok-green": { "role": "tertiary", "displayName": "Tip / Good", "canonical": "#1d6b45", "cssVar": "--ok", "dark": "#6ccf9f" },
+      "warn-amber": { "role": "tertiary", "displayName": "Warning", "canonical": "#a85b00", "cssVar": "--warn", "dark": "#ffb15c" },
+      "info-blue": { "role": "tertiary", "displayName": "Info", "canonical": "#004b87", "cssVar": "--info", "dark": "#8fc3ff" },
+      "req-violet": { "role": "tertiary", "displayName": "Required", "canonical": "#7a3fb8", "cssVar": "--req", "dark": "#c9a6ff" },
+      "bad-red": { "role": "tertiary", "displayName": "Bad / Error", "canonical": "#a63a26", "cssVar": "--bad", "dark": "#ff9d89" },
+      "topic-overview": { "role": "secondary", "displayName": "Topic 01 Overview", "canonical": "#0e7c86", "cssVar": "--c-overview", "dark": "#5fd0d8" },
+      "topic-create-form": { "role": "secondary", "displayName": "Topic 02 Create a new form", "canonical": "#e31c79", "cssVar": "--c-create-form", "dark": "#ff5fa6" },
+      "topic-controls": { "role": "secondary", "displayName": "Topic 03 Control types", "canonical": "#1f66c9", "cssVar": "--c-controls", "dark": "#82b6ff" },
+      "topic-instance-forms": { "role": "secondary", "displayName": "Topic 04 Instance-based forms", "canonical": "#5b4bd6", "cssVar": "--c-instance-forms", "dark": "#aa9dff" },
+      "topic-step14": { "role": "secondary", "displayName": "Topic 05 Multi response forms", "canonical": "#b4560a", "cssVar": "--c-step14", "dark": "#f5a35c" },
+      "topic-multi-preceptor": { "role": "secondary", "displayName": "Topic 06 Multi-preceptor forms", "canonical": "#4d7c0f", "cssVar": "--c-multi-preceptor", "dark": "#b5d97a" },
+      "topic-notifications": { "role": "secondary", "displayName": "Topic 07 Notifications", "canonical": "#c53030", "cssVar": "--c-notifications", "dark": "#ff8f8f" },
+      "topic-terms": { "role": "secondary", "displayName": "Topic 08 Terms", "canonical": "#8b5e34", "cssVar": "--c-terms", "dark": "#e0b48a" },
+      "topic-workflows": { "role": "secondary", "displayName": "Topic 09 Tested workflows", "canonical": "#0e7490", "cssVar": "--c-workflows", "dark": "#67d4ea" },
+      "topic-glossary": { "role": "secondary", "displayName": "Topic 10 Glossary", "canonical": "#2f7d3b", "cssVar": "--c-glossary", "dark": "#86d492" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Home title only, balanced wrap." },
+      "headline": { "displayName": "Headline", "purpose": "Topic title in the sheet header, max 20em." },
+      "title": { "displayName": "Title", "purpose": "Part heading; inline code inside it takes the topic hue." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "h3 within a part and the Steps at a glance summary, opened by a 1px hairline." },
+      "lede": { "displayName": "Lede", "purpose": "Home lede (max 32em) and topic blurb (max 60ch), slate." },
+      "body": { "displayName": "Body", "purpose": "Topic prose, max 72ch. Base body 16.5px/1.6, 16px under 620px." },
+      "label": { "displayName": "Label", "purpose": "Uppercase mono: margin labels, crumbs, table headers, callout labels, contents heads." },
+      "number": { "displayName": "Number", "purpose": "Tabular mono counters, two digits with leading zero, in pink or the topic hue." },
+      "code": { "displayName": "Code", "purpose": "Code panel lines; inline code at 0.86em on code-sand with 3px radius." }
+    },
+    "fonts": [
+      { "family": "Inter", "source": "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400", "cssVar": "--font" },
+      { "family": "JetBrains Mono", "source": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500", "cssVar": "--mono" }
+    ],
+    "shadows": [
+      { "name": "none", "value": "none", "purpose": "The system casts no shadows. Depth is rule weight: 2px opens, 1px separates." },
+      { "name": "rail-ring", "value": "0 0 0 3px var(--bg), 0 0 0 4px var(--tc)", "purpose": "Flat ring on the rail's current mark; a gap and a topic-hue ring, not a shadow." },
+      { "name": "input-ring", "value": "inset 0 0 0 1px var(--ink)", "purpose": "Focused input thickens its border; error swaps ink for var(--bad)." }
+    ],
+    "rules": [
+      { "name": "open", "value": "2px solid var(--rule)", "purpose": "Opens a sheet header, contents list, parts list, table, tool, glossary, download row." },
+      { "name": "separate", "value": "1px solid var(--line)", "purpose": "Between rows, steps, parts, tiles; figure border; rail line." },
+      { "name": "part", "value": "1px solid var(--rule)", "purpose": "Above a part and above the Next part link; the meta row on the home sheet." },
+      { "name": "callout", "value": "1px solid var(--k)", "purpose": "Left hairline of a callout in its own colour." },
+      { "name": "head-link", "value": "1px solid var(--head-line)", "purpose": "Underline on running-head and footer links, brightens on hover." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.2,.7,.2,1)", "purpose": "Default easing for every hover and state transition." },
+      { "name": "ease-out", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Entrances: topic appear, glance list, lightbox, keyboard help." },
+      { "name": "state", "value": "200ms", "purpose": "Colour, border and arrow-slide transitions on hover." },
+      { "name": "appear", "value": "250ms opacity fade", "purpose": "A topic opening, a glance list opening, the chevron rotate." },
+      { "name": "overlay", "value": "200ms opacity fade", "purpose": "Lightbox and keyboard help." },
+      { "name": "theme-toggle", "value": "250ms opacity, 350ms transform", "purpose": "Sun and moon cross-fade with a 90deg rotate and 0.6 scale." },
+      { "name": "theme-crossfade", "value": "400ms background-color, color, border-color, fill, stroke; html.theming for 450ms", "purpose": "Whole-page colour cross-fade when the theme changes." },
+      { "name": "progress", "value": "width 100ms linear", "purpose": "The 2px reading-progress line in the topic bar." },
+      { "name": "intro-rise", "value": "550ms per letter, 90ms stagger, 150ms delay; sweep 600ms at 750ms; tagline 500ms at 1s; dismiss 600ms fade at 2.6s or on click", "purpose": "The intro splash, home only, the only entrance animation; skipped under prefers-reduced-motion." },
+      { "name": "reduced-motion", "value": "animation: none; transition: none", "purpose": "Everything above is disabled under prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "rail", "value": "1200px", "note": "min-width: the parts rail shows and the topic body becomes 120px + fluid grid." },
+      { "name": "sheet-collapse", "value": "1199px", "note": "max-width: home sheet to one column, margin labels hidden, topic header stacks." },
+      { "name": "doc-title", "value": "900px", "note": "max-width: running-head document title hidden." },
+      { "name": "home-narrow", "value": "640px", "note": "max-width: meta row stacks, contents rows drop the arrow, pills full width." },
+      { "name": "phone", "value": "620px", "note": "max-width: body 16px, bar pills wrap to a second row, keyboard button hidden, Do/Don't stacks, tables gain the Scroll sideways label." }
+    ],
+    "layout": {
+      "pageMax": "1500px",
+      "gutter": "clamp(20px, 4vw, 56px)",
+      "marginColumn": "120px",
+      "titleColumn": "520px",
+      "columnGap": "clamp(32px, 4vw, 64px)",
+      "readingColumn": "1060px",
+      "prose": "72ch",
+      "headHeight": "52px",
+      "stickyOffset": "76px (112px under 620px)"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Pill",
+      "kind": "button",
+      "refersTo": "pill-primary",
+      "description": "The one filled pink pill per sheet; inverts to navy on hover, arrow slides 3px.",
+      "html": "<a class=\"ds-pill\" href=\"#\">Start with 01 Overview <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:10px;background:var(--accent-fill,#d41569);color:var(--accent-ink,#fff);font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:999px;text-decoration:none;transition:background .2s cubic-bezier(.2,.7,.2,1),color .2s cubic-bezier(.2,.7,.2,1)}.ds-pill svg{transition:transform .2s cubic-bezier(.2,.7,.2,1)}.ds-pill:hover{background:var(--ink,#041c2c);color:var(--bg,#f6f2f0)}.ds-pill:hover svg{transform:translateX(3px)}.ds-pill:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Outline Pill",
+      "kind": "button",
+      "refersTo": "pill-outline",
+      "description": "Secondary action: 1.5px navy border, fills navy on hover.",
+      "html": "<a class=\"ds-pill-outline\" href=\"#\">Open the Form Builder</a>",
+      "css": ".ds-pill-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--ink,#041c2c);border:1.5px solid var(--ink,#041c2c);font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:999px;text-decoration:none;transition:background .2s cubic-bezier(.2,.7,.2,1),color .2s cubic-bezier(.2,.7,.2,1)}.ds-pill-outline:hover{background:var(--ink,#041c2c);color:var(--bg,#f6f2f0)}.ds-pill-outline:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:3px}"
+    },
+    {
+      "name": "Running Head",
+      "kind": "nav",
+      "refersTo": "running-head",
+      "description": "52px navy band: wordmark with brand-pink xx, mono document title in sky, underlined ice link, round theme button.",
+      "html": "<header class=\"ds-head\"><a class=\"ds-brand\" href=\"#\">E<b>xx</b>at</a><span class=\"ds-doc\">Form Configuration Guide · Eval Configuration Tool</span><a class=\"ds-ext\" href=\"#\">Open the Form Builder <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7M9 7h8v8\"/></svg></a><button class=\"ds-theme\" type=\"button\" aria-label=\"Switch theme\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z\"/></svg></button></header>",
+      "css": ".ds-head{display:flex;align-items:center;gap:20px;min-height:52px;padding:0 24px;background:var(--head,#041c2c);color:var(--head-ink,#edf7fd);font-family:'Inter',system-ui,sans-serif}.ds-brand{font-weight:700;font-size:1.25rem;letter-spacing:-.04em;color:#fff;text-decoration:none;line-height:1}.ds-brand b{color:#e31c79}.ds-doc{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--head-muted,#99d2ff);margin-left:8px}.ds-ext{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-size:.9rem;font-weight:500;color:var(--head-ink,#edf7fd);text-decoration:none;padding:6px 0;border-bottom:1px solid var(--head-line,#2a4a66);transition:border-color .2s cubic-bezier(.2,.7,.2,1)}.ds-ext:hover{border-color:var(--head-ink,#edf7fd)}.ds-theme{display:inline-grid;place-items:center;width:36px;height:36px;padding:0;border-radius:50%;border:1.5px solid var(--head-line,#2a4a66);background:transparent;color:var(--head-ink,#edf7fd);cursor:pointer;transition:border-color .2s cubic-bezier(.2,.7,.2,1)}.ds-theme:hover{border-color:var(--head-ink,#edf7fd)}.ds-theme:focus-visible,.ds-ext:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:3px}"
+    },
+    {
+      "name": "Contents Row",
+      "kind": "nav",
+      "refersTo": "contents-row",
+      "description": "Home contents list: 2px opening rule, mono head, ruled rows with pink number, topic swatch, title, part count, arrow.",
+      "html": "<div class=\"ds-toc\"><p class=\"ds-toch\"><span>Learning path · Follow in order</span><span>Parts</span></p><ul class=\"ds-rows\"><li style=\"--tc:#0e7c86\"><a class=\"ds-row\" href=\"#\"><span class=\"ds-n\">01</span><span class=\"ds-sw\"></span><span class=\"ds-t\">Overview<small>What the guide covers and the process from start to finish.</small></span><span class=\"ds-p\">1 part</span><span class=\"ds-g\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li><li style=\"--tc:#e31c79\"><a class=\"ds-row\" href=\"#\"><span class=\"ds-n\">02</span><span class=\"ds-sw\"></span><span class=\"ds-t\">Create a new form<small>From the landing page to sections, layout and workflow.</small></span><span class=\"ds-p\">12 parts</span><span class=\"ds-g\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li></ul></div>",
+      "css": ".ds-toc{border-top:2px solid var(--rule,#041c2c);font-family:'Inter',system-ui,sans-serif;color:var(--ink,#041c2c);max-width:560px}.ds-toch{display:flex;justify-content:space-between;margin:0;padding:12px 0 6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2,#3b5670);font-weight:500}.ds-rows{list-style:none;margin:0;padding:0}.ds-rows li+li .ds-row{border-top:1px solid var(--line,#d9d2cb)}.ds-row{display:grid;grid-template-columns:44px 16px minmax(0,1fr) 100px 20px;align-items:baseline;column-gap:16px;padding:15px 0;text-decoration:none;color:inherit}.ds-n{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--accent,#c9156a)}.ds-sw{width:10px;height:10px;border-radius:2px;background:var(--tc);align-self:center}.ds-t{font-size:1.15rem;font-weight:600;letter-spacing:-.01em;line-height:1.3;transition:color .2s cubic-bezier(.2,.7,.2,1)}.ds-t small{display:block;font-weight:400;font-size:.84rem;color:var(--ink-2,#3b5670);margin-top:3px;line-height:1.45}.ds-p{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.78rem;color:var(--ink-2,#3b5670);text-align:right;white-space:nowrap}.ds-g{color:var(--ink-2,#3b5670);align-self:center;transition:transform .2s cubic-bezier(.2,.7,.2,1),color .2s cubic-bezier(.2,.7,.2,1)}.ds-row:hover .ds-t,.ds-row:hover .ds-g{color:var(--tc)}.ds-row:hover .ds-g{transform:translateX(3px)}.ds-row:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:-2px}"
+    },
+    {
+      "name": "Parts Rail",
+      "kind": "nav",
+      "refersTo": "rail",
+      "description": "One continuous hairline with 11px marks: empty at rest, slate-filled when passed, topic-hue with a flat ring when current.",
+      "html": "<nav class=\"ds-rail\" style=\"--tc:#e31c79\"><p class=\"ds-railh\">In this topic</p><ol class=\"ds-railsteps\"><li><a class=\"ds-rs ds-done\" href=\"#\"><i></i><span>Landing page</span></a></li><li><a class=\"ds-rs ds-on\" href=\"#\"><i></i><span>Create a new form</span></a></li><li><a class=\"ds-rs\" href=\"#\"><i></i><span>Feature ID naming rules</span></a></li><li><a class=\"ds-rs\" href=\"#\"><i></i><span>Start with an existing form</span></a></li></ol></nav>",
+      "css": ".ds-rail{width:120px;padding:14px 0 16px;font-family:'Inter',system-ui,sans-serif}.ds-railh{margin:0 0 14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2,#3b5670)}.ds-railsteps{list-style:none;margin:0;padding:0;position:relative}.ds-railsteps::before{content:\"\";position:absolute;left:5px;top:10px;bottom:10px;width:1px;background:var(--line,#d9d2cb)}.ds-railsteps li+li{margin-top:6px}.ds-rs{display:flex;align-items:flex-start;gap:12px;padding:4px 0;color:var(--ink-2,#3b5670);text-decoration:none;font-size:.82rem;font-weight:500;line-height:1.35;transition:color .2s cubic-bezier(.2,.7,.2,1)}.ds-rs i{flex:0 0 auto;width:11px;height:11px;margin-top:.22em;border-radius:50%;border:1px solid var(--line,#d9d2cb);background:var(--bg,#f6f2f0);position:relative;z-index:1;transition:border-color .2s,background .2s,box-shadow .2s}.ds-rs:hover{color:var(--tc)}.ds-rs:hover i{border-color:var(--tc)}.ds-rs.ds-done i{border-color:var(--ink-2,#3b5670);background:var(--ink-2,#3b5670)}.ds-rs.ds-on{color:var(--ink,#041c2c);font-weight:600}.ds-rs.ds-on i{border-color:var(--tc);background:var(--tc);box-shadow:0 0 0 3px var(--bg,#f6f2f0),0 0 0 4px var(--tc)}.ds-rs:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:3px;border-radius:2px}"
+    },
+    {
+      "name": "Callout",
+      "kind": "custom",
+      "refersTo": "callout",
+      "description": "No box: a 1px left hairline in the callout colour, a masked line icon, a mono label, the text. Variants info, warn, tip, req.",
+      "html": "<div class=\"ds-note ds-k-warn\"><span class=\"ds-ni\"></span><div class=\"ds-nb\"><b class=\"ds-l\">Warning</b>Spaces are not permitted anywhere in a Feature ID, including between its parts.</div></div>",
+      "css": ".ds-note{--k:var(--info,#004b87);display:flex;gap:14px;align-items:flex-start;margin:1.5em 0;padding:4px 0 4px 18px;border-left:1px solid var(--k);font-family:'Inter',system-ui,sans-serif;font-size:.97rem;line-height:1.6;color:var(--ink,#041c2c);max-width:72ch}.ds-note.ds-k-warn{--k:var(--warn,#a85b00)}.ds-note.ds-k-tip{--k:var(--ok,#1d6b45)}.ds-note.ds-k-req{--k:var(--req,#7a3fb8)}.ds-nb{min-width:0;overflow-wrap:anywhere}.ds-l{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--k);margin-bottom:4px}.ds-ni{flex:0 0 auto;width:20px;height:20px;margin-top:3px;background:var(--k);-webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3 2 20h20z'/%3E%3Cpath d='M12 10v4M12 17v.01'/%3E%3C/svg%3E\") center/20px no-repeat;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3 2 20h20z'/%3E%3Cpath d='M12 10v4M12 17v.01'/%3E%3C/svg%3E\") center/20px no-repeat}"
+    },
+    {
+      "name": "Numbered Steps",
+      "kind": "custom",
+      "refersTo": "steps",
+      "description": "Ruled ordered list: two-digit mono counter in the topic hue in a 48px gutter, hairline above the list and under each step.",
+      "html": "<ol class=\"ds-proc\" style=\"--tc:#e31c79\"><li><b>Form Name.</b> Type or paste the name of the form, as specified in the requirement.</li><li><b>Form name abbr (Feature ID).</b> Enter a unique abbreviation.</li><li><b>Create Form.</b> The editor opens.</li></ol>",
+      "css": ".ds-proc{list-style:none;counter-reset:p;padding:0;margin:14px 0 22px;border-top:1px solid var(--line,#d9d2cb);max-width:72ch;font-family:'Inter',system-ui,sans-serif;font-size:1.02rem;line-height:1.7;color:var(--ink,#041c2c)}.ds-proc>li{counter-increment:p;position:relative;padding:12px 0 12px 48px;margin:0;border-bottom:1px solid var(--line,#d9d2cb)}.ds-proc>li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.82rem;font-weight:500;color:var(--tc,var(--accent,#c9156a));font-variant-numeric:tabular-nums}.ds-proc b{font-weight:600}"
+    },
+    {
+      "name": "Ruled Table",
+      "kind": "custom",
+      "refersTo": "table",
+      "description": "2px opening rule, mono uppercase headers over a navy rule, hairline rows, tint-blue row hover, no box, no vertical rules.",
+      "html": "<div class=\"ds-scroll\"><table class=\"ds-table\"><thead><tr><th>Option</th><th>Contents</th><th>Purpose</th></tr></thead><tbody><tr><td>Create A New Form (left)</td><td>Form Name, Form name abbr (Feature ID), Create Form button</td><td>Build a form from the beginning</td></tr><tr><td>Start With An Existing Form (right)</td><td>Tenant Id, OOU Code, Duplicate form checkbox, List Forms button</td><td>Locate and duplicate a form that already exists</td></tr></tbody></table></div>",
+      "css": ".ds-scroll{overflow-x:auto;margin:1.2em 0;border-top:2px solid var(--rule,#041c2c);border-bottom:1px solid var(--line,#d9d2cb)}.ds-table{border-collapse:collapse;width:100%;min-width:500px;font-family:'Inter',system-ui,sans-serif;font-size:.93rem;line-height:1.5;color:var(--ink,#041c2c);font-variant-numeric:tabular-nums}.ds-table th,.ds-table td{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--line,#d9d2cb);vertical-align:top}.ds-table th{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2,#3b5670);border-bottom-color:var(--rule,#041c2c)}.ds-table tr:last-child td{border-bottom:0}.ds-table tbody tr:hover td{background:var(--tint,#e9f2ff)}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Feature ID checker field: 1px slate border, 4px radius, sheet-surface fill; focus thickens to navy with an inset ring, error turns red.",
+      "html": "<div class=\"ds-tool\"><label class=\"ds-tool-label\" for=\"ds-fid\">Check a Feature ID</label><input class=\"ds-input\" id=\"ds-fid\" type=\"text\" placeholder=\"e.g. MSN_Clinical_Eval_v2\"><p class=\"ds-msg ds-ok\">Allowed.</p></div>",
+      "css": ".ds-tool{border-top:2px solid var(--rule,#041c2c);padding:16px 0 4px;max-width:72ch;font-family:'Inter',system-ui,sans-serif;color:var(--ink,#041c2c)}.ds-tool-label{display:block;font-weight:600;font-size:.92rem;margin-bottom:8px}.ds-input{width:100%;padding:10px 12px;border:1px solid var(--ink-2,#3b5670);border-radius:4px;background:var(--surface,#fdfcfb);color:var(--ink,#041c2c);font:inherit;margin-bottom:8px;box-sizing:border-box}.ds-input:focus{border-color:var(--ink,#041c2c);outline:none;box-shadow:inset 0 0 0 1px var(--ink,#041c2c)}.ds-input.ds-err{border-color:var(--bad,#a63a26);box-shadow:inset 0 0 0 1px var(--bad,#a63a26)}.ds-msg{font-size:.9rem;min-height:1.4em;margin:0}.ds-msg.ds-ok{color:var(--good,#1d6b45)}.ds-msg.ds-no{color:var(--bad,#a63a26)}"
+    },
+    {
+      "name": "Code Panel",
+      "kind": "card",
+      "refersTo": "code-panel",
+      "description": "Navy sheet with a mono filename tab, sky meta label, ghost pill buttons, numbered lines; the only bordered field on the page.",
+      "html": "<div class=\"ds-code\"><div class=\"ds-codebar\"><span class=\"ds-ctab\">template.json</span><span class=\"ds-cmeta\">JSON · 3 lines</span><button class=\"ds-cbtn ds-pri\" type=\"button\">Copy</button><button class=\"ds-cbtn\" type=\"button\">Download</button></div><pre class=\"ds-cpre\"><span class=\"ds-ln\">{</span><span class=\"ds-ln\">  <span class=\"ds-k\">\"isMultiResponse\"</span>: <span class=\"ds-b\">true</span>,</span><span class=\"ds-ln\">  <span class=\"ds-k\">\"instanceForm\"</span>: <span class=\"ds-s\">\"RecordSummary\"</span></span><span class=\"ds-ln\">}</span></pre></div>",
+      "css": ".ds-code{margin:12px 0 22px;border-radius:4px;overflow:hidden;background:var(--panel,#041c2c);color:var(--panel-ink,#edf7fd);border:1px solid var(--head-line,#2a4a66);font-family:'Inter',system-ui,sans-serif}.ds-codebar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:8px 10px 8px 14px;border-bottom:1px solid var(--head-line,#2a4a66)}.ds-ctab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;padding:4px 0}.ds-cmeta{font-family:'JetBrains Mono',ui-monospace,monospace;color:var(--head-muted,#99d2ff);font-size:.76rem;margin-right:auto;letter-spacing:.04em}.ds-cbtn{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;border:1px solid var(--head-line,#2a4a66);background:transparent;color:var(--panel-ink,#edf7fd);font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:border-color .15s cubic-bezier(.2,.7,.2,1),color .15s cubic-bezier(.2,.7,.2,1)}.ds-cbtn:hover{border-color:var(--panel-ink,#edf7fd)}.ds-cbtn.ds-pri{border-color:var(--panel-ink,#edf7fd)}.ds-cbtn.ds-done{border-color:var(--ok,#1d6b45);color:var(--ok,#1d6b45)}.ds-cbtn:focus-visible{outline:2px solid #ff5fa6;outline-offset:3px}.ds-cpre{margin:0;padding:14px 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.82rem;line-height:1.6;counter-reset:ln;tab-size:4;overflow:auto}.ds-ln{display:block;padding:0 18px 0 0;white-space:pre}.ds-ln::before{counter-increment:ln;content:counter(ln);display:inline-block;width:48px;padding-right:16px;margin-right:4px;text-align:right;color:#4f6f8a;user-select:none}.ds-ln:hover{background:rgba(153,210,255,.06)}.ds-k{color:#99d2ff}.ds-s{color:#ffd1e6}.ds-b{color:#7ab2e0}"
+    },
+    {
+      "name": "Next Part Link",
+      "kind": "nav",
+      "refersTo": "next-part",
+      "description": "Ruled row closing a part: pink mono kicker, 600 title, slate arrow that slides 4px and takes the topic hue on hover.",
+      "html": "<a class=\"ds-nextpart\" href=\"#\" style=\"--tc:#e31c79\"><span><small>Next part</small><b>Create a new form</b></span><span class=\"ds-npgo\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-nextpart{display:flex;align-items:center;gap:14px;margin:40px 0 0;padding:18px 0;border-top:1px solid var(--rule,#041c2c);color:var(--ink,#041c2c);text-decoration:none;max-width:72ch;font-family:'Inter',system-ui,sans-serif}.ds-nextpart>span:first-child{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}.ds-nextpart small{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#c9156a)}.ds-nextpart b{font-size:1.05rem;font-weight:600;line-height:1.3;transition:color .2s cubic-bezier(.2,.7,.2,1)}.ds-npgo{margin-left:auto;display:inline-flex;color:var(--ink-2,#3b5670);transition:transform .2s cubic-bezier(.2,.7,.2,1),color .2s cubic-bezier(.2,.7,.2,1)}.ds-nextpart:hover b,.ds-nextpart:hover .ds-npgo{color:var(--tc)}.ds-nextpart:hover .ds-npgo{transform:translateX(4px)}.ds-nextpart:focus-visible{outline:2px solid var(--accent,#c9156a);outline-offset:3px;border-radius:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Specification Sheet",
+    "overview": "Every Form Builder setting is a parameter, so the guide is set the way a parameter sheet is set: numbered, ruled, flat, and nothing boxed. The page is a warm off-white sheet under a 52px deep-navy running head. Groups open with a 2px navy rule and rows are separated by 1px hairlines; there are no cards, no containers, no shadows. Depth is rule weight alone. The reader always knows the sheet number (in the margin), the part they are on (the rail) and what comes next (the ruled Next part link).\n\nExxat pink is disciplined. It does two jobs only: the mono numbers and labels that index the sheet (SHEET 02, 01, PART 1 OF 12, figure numbers, step numbers) and the one filled primary pill per sheet. Every topic also owns one small hue, shown as a 10px square swatch in the contents, in the sheet label, on the rail's current mark, and on hover of links inside that topic. Inter carries the display and reading voice; JetBrains Mono carries every number, ID, URL and label. Dark mode inverts the sheet to navy and keeps every rule, weight and position unchanged.\n\nThe build deliberately refuses the category default of a dark hero over a bento of icon cards. Glows, orbs, gradient or shimmering text, floating chips, tilted mock-ups, icon tiles, pill badges, hover-lift shadows, the wave divider and the bento grid were removed and must not return.",
+    "keyCharacteristics": [
+      "Flat sheet: 2px navy rule opens a group, 1px hairline separates rows, nothing boxed",
+      "Pink is an index colour (mono numbers, labels) plus one filled pill per sheet",
+      "Per-topic hue lives only in the swatch, the rail mark, in-topic headings and hover",
+      "Inter for words, JetBrains Mono (tabular) for every number, ID, label and code",
+      "Dark mode is the same sheet printed on navy; rules and layout do not move",
+      "Motion is short and settled: 200 to 250ms fades, one intro splash, nothing loops"
+    ],
+    "rules": [
+      { "name": "The Two Jobs Rule", "body": "Pink indexes (mono numbers and labels) and fills exactly one primary pill per sheet. It is never a heading colour, a border on a box, or a background wash larger than a selection.", "section": "colors" },
+      { "name": "The Swatch Rule", "body": "A topic's hue appears as a 10px, 2px-radius square and as the rail's struck mark. It colours small text on hover and counters inside its own sheet; it never tints a surface.", "section": "colors" },
+      { "name": "The Rule Weight Rule", "body": "A 2px navy rule opens a sheet, a table, a contents list or a parts list. A 1px hairline separates rows, steps, parts and figures. There is no third weight and no box.", "section": "colors" },
+      { "name": "The Mono Index Rule", "body": "If it is a number, an ID, a URL, a key, a count or an uppercase label, it is JetBrains Mono with tabular numerals. Inter never carries a counter.", "section": "typography" },
+      { "name": "The Leading-Zero Rule", "body": "Sequence numbers are two digits (01, 02 … 12) via decimal-leading-zero, in pink or the topic hue, sitting in a 36–48px left gutter.", "section": "typography" },
+      { "name": "The No-Box Rule", "body": "Content is never placed in a container. If a group needs separating, open it with a rule.", "section": "elevation" },
+      { "name": "The No-Shadow Rule", "body": "box-shadow is permitted only as a flat ring (focus, the rail's current mark). Nothing casts.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do open every group (sheet header, contents, parts list, table, tool, glossary, download row) with a 2px navy rule and separate its rows with 1px hairlines.",
+      "Do set every number, ID, URL, key, count and uppercase label in JetBrains Mono with tabular numerals, two-digit counters with a leading zero.",
+      "Do keep pink to mono numbers and labels plus one filled primary pill per sheet.",
+      "Do carry a topic's hue only as the 10px square swatch, the rail's current mark, in-topic counters and hover colour.",
+      "Do keep hover and state changes to 200–250ms on cubic-bezier(.2,.7,.2,1) and entrances to a 250ms fade on cubic-bezier(.16,1,.3,1); cross-fade the theme over 400ms; disable all of it under prefers-reduced-motion.",
+      "Do keep dark mode the same sheet on navy: identical rules, weights and positions, pink lifted to dark-pink with navy type on the fill.",
+      "Do cap prose at 72ch, the topic column at 1060px and the page at 1500px."
+    ],
+    "donts": [
+      "Don't put content in a card, panel or bordered container on the sheet; the code panel and the two navy bands are the only coloured fields.",
+      "Don't use drop shadows, hover lift, glows, drifting orbs, gradient or shimmering text, or blurred backdrops.",
+      "Don't reintroduce floating chips, tilted mock-ups, icon tiles, pill badges, the wave divider or the bento grid.",
+      "Don't colour a heading, paragraph or surface with pink or a topic hue; they index and mark, they do not fill.",
+      "Don't add a second filled pink pill to a sheet or let pink carry running text.",
+      "Don't replace masked line icons in callouts with glyph or emoji icons, or add icons to tiles and rows beyond the arrow.",
+      "Don't introduce a third rule weight, a vertical table rule or an outer table border."
+    ]
+  }
+}

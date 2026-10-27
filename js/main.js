@@ -39,9 +39,6 @@
     else target.scrollIntoView({ behavior: sameTopic ? 'smooth' : 'auto', block: 'start' });
     setTimeout(function () { updateProgress(); spyRail(); }, 0);
 
-    var colour = getComputedStyle(section).getPropertyValue('--tc');
-    var deco = $('.deco');
-    if (colour && deco) deco.style.setProperty('--deco-c', colour.trim());
     document.title = section.dataset.title + ' · ' + SITE_TITLE;
   }
 
@@ -117,8 +114,11 @@
     });
     var atEnd = window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
     if (atEnd) active = railItems[railItems.length - 1];
+    var passed = true;   // parts above the current one take a filled mark
     railItems.forEach(function (it) {
       var on = it === active;
+      if (on) passed = false;
+      it.link.classList.toggle('done', passed);
       if (on !== it.link.classList.contains('on')) {
         it.link.classList.toggle('on', on);
         if (on && it.link.scrollIntoView) it.link.scrollIntoView({ block: 'nearest' });
@@ -154,7 +154,7 @@
   /* ---------- Lightbox for screenshots ---------- */
   var lightbox = $('#lb');
   if (lightbox) {
-    var lbImage = $('img', lightbox);
+    var lbImage = $('img', lightbox) || lightbox.insertBefore(document.createElement('img'), $('.lbcap', lightbox));
     var lbCaption = $('.lbcap', lightbox);
     var lbClose = $('.lbc', lightbox);
 
@@ -225,7 +225,7 @@
       var a = document.createElement('a');
       a.className = 'nextpart';
       a.href = href;
-      a.innerHTML = '<span><small></small><b></b></span><span class="npgo" aria-hidden="true">→</span>';
+      a.innerHTML = '<span><small></small><b></b></span><span class="npgo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
       $('small', a).textContent = kind;
       $('b', a).textContent = title;
       part.appendChild(a);
@@ -413,7 +413,6 @@
   reflectTheme();
 
   /* ---------- First paint ---------- */
-  $$('.card').forEach(function (card, i) { card.style.setProperty('--d', i); });
   route();
 
   /* ---------- Intro splash, only on the home page and only with motion allowed ---------- */
@@ -426,9 +425,7 @@
       if (finished) return;
       finished = true;
       intro.classList.add('out');
-      document.body.classList.add('play');
-      setTimeout(function () { intro.hidden = true; }, 750);
-      setTimeout(function () { document.body.classList.remove('play'); }, 2000);
+      setTimeout(function () { intro.hidden = true; }, 650);
     };
     setTimeout(finish, 2600);
     intro.addEventListener('click', finish);
