@@ -376,17 +376,16 @@
   }
 
   /* ---------- Light and dark mode ----------
-   * data-theme on <html> overrides the system setting (the head script sets
-   * it early from localStorage). html.dark mirrors the effective theme so the
+   * Light by default; data-theme="dark" on <html> switches (the head script
+   * sets it early from localStorage). html.dark mirrors the effective theme so the
    * toggle can show the right icon. */
   var root = document.documentElement;
-  var systemDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   var themeButtons = $$('.theme');
 
   function currentTheme() {
     var chosen = root.getAttribute('data-theme');
     if (chosen === 'light' || chosen === 'dark') return chosen;
-    return systemDark && systemDark.matches ? 'dark' : 'light';
+    return 'light';   // light unless the toggle chose dark
   }
   function reflectTheme() {
     var dark = currentTheme() === 'dark';
@@ -409,7 +408,6 @@
       setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
     });
   });
-  if (systemDark && systemDark.addEventListener) systemDark.addEventListener('change', reflectTheme);
   reflectTheme();
 
   /* ---------- First paint ---------- */

@@ -3,7 +3,7 @@
  * The guide is set like a specification sheet: a warm off-white sheet, a
  * navy running head, hairline rules instead of boxes, pink for numbers and
  * the one primary action. Sections, in order:
- *   1. Design tokens (light, then dark via system setting or data-theme)
+ *   1. Design tokens (light by default, dark via data-theme="dark")
  *   2. Base, browser surfaces and no-JavaScript routing (:target shows a topic)
  *   3. Intro splash
  *   4. Home: running head, title block, contents list
@@ -26,14 +26,6 @@
   --gutter:clamp(20px,4vw,56px);
   color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#041c2c; --surface:#0a2436; --ink:#edf7fd; --ink-2:#a9c3d6; --line:#1f3b52; --rule:#edf7fd;
-  --accent:#ff5fa6; --accent-fill:#ff5fa6; --accent-ink:#041c2c; --accent-soft:#3a1a2c;
-  --head:#02131f; --head-ink:#edf7fd; --head-muted:#99d2ff; --head-line:#1f3b52;
-  --tint:#0f2d45; --code-bg:#0f2d45; --panel:#02131f; --panel-ink:#edf7fd;
-  --ok:#6ccf9f; --warn:#ffb15c; --info:#8fc3ff; --req:#c9a6ff; --bad:#ff9d89; --good:#6ccf9f;
-  --c-overview:#5fd0d8; --c-create-form:#ff5fa6; --c-instance-forms:#aa9dff; --c-step14:#f5a35c; --c-glossary:#86d492; --c-controls:#82b6ff; --c-workflows:#67d4ea; --c-notifications:#ff8f8f; --c-multi-preceptor:#b5d97a; --c-terms:#e0b48a;
-  color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#041c2c; --surface:#0a2436; --ink:#edf7fd; --ink-2:#a9c3d6; --line:#1f3b52; --rule:#edf7fd;
   --accent:#ff5fa6; --accent-fill:#ff5fa6; --accent-ink:#041c2c; --accent-soft:#3a1a2c;
@@ -340,6 +332,7 @@ a.nttile:hover b{color:var(--tc)}
 .gfoot .fb{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;color:#fff;line-height:1}
 .gfoot .fb b{color:#e31c79}
 .gfoot .ft{margin-top:12px;font-weight:600;color:var(--head-ink)}
+.gfoot .fa{margin-top:14px;font-size:.88rem;color:var(--head-ink)}
 .gfoot .fs{margin-top:2px;font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
 .gfoot .fl{display:flex;flex-wrap:wrap;gap:24px}
 .gfoot .fl a{display:inline-flex;align-items:center;gap:7px;padding:6px 0;color:var(--head-ink);text-decoration:none;font-weight:500;font-size:.92rem;border-bottom:1px solid var(--head-line);transition:border-color .2s var(--ease)}

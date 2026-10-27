@@ -211,7 +211,7 @@ A warm paper sheet, deep navy ink and a single pink index colour, with ten small
 - **Tint Blue** (`tint-blue`): table row hover only. **Code Sand** (`code-sand`): inline code background.
 
 ### Dark theme
-Applied by `prefers-color-scheme: dark` (unless `data-theme="light"`) and by `[data-theme="dark"]`. The sheet becomes `dark-sheet`, ink becomes `dark-ink`, the opening rule becomes ice (`dark-rule`), hairlines `dark-hairline`, the running head drops a shade to `dark-head`. Pink lifts to `dark-pink` for both index and fill, with navy type on the fill. Topic and callout hues lift to pastel versions. Brand pink `#e31c79` stays fixed because it only ever sits on navy.
+Applied only by `[data-theme="dark"]`, set by the toggle and remembered in localStorage; the site is light by default and does not follow the system setting. The sheet becomes `dark-sheet`, ink becomes `dark-ink`, the opening rule becomes ice (`dark-rule`), hairlines `dark-hairline`, the running head drops a shade to `dark-head`. Pink lifts to `dark-pink` for both index and fill, with navy type on the fill. Topic and callout hues lift to pastel versions. Brand pink `#e31c79` stays fixed because it only ever sits on navy.
 
 ### Named Rules
 **The Two Jobs Rule.** Pink indexes (mono numbers and labels) and fills exactly one primary pill per sheet. It is never a heading colour, a border on a box, or a background wash larger than a selection.
